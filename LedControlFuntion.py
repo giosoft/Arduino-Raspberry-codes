@@ -47,7 +47,7 @@ while i == 1:
     print("\n")
 ####
     Ham = True
-    if Ham = True:
+    if Ham == True:
         LedBasicControl(LedsNumber[0],Leds[0])
         LedBasicControl(LedsNumber[1],Leds[1])
     ## გამოსვლა
