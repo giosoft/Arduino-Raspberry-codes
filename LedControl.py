@@ -10,7 +10,7 @@ for LedsNumberLoop in range (HowManyLed):
     LedsNumber.append(LedsNumberLoop + 1)
 Leds = []
 for LedsLoop in range(1, HowManyLed + 1):
-    LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი\t" % LedsNumber[LedsLoop - 1]))
+    LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი:\t" % LedsNumber[LedsLoop - 1]))
     Leds.append(LedsInput)
     GPIO.setup(Leds[LedsLoop - 1],GPIO.OUT)
 
@@ -20,16 +20,17 @@ while i == 1:
     reply = int(input("LED ნათება\n1.წითელი-ჩართვა\n2.წითელი-ციმციმი\n3.წითელი-გამორთვა\n4.მწვანე-ჩართვა\n5.მწვანე-ციმციმი\n6.მწვანე-გამორთვა\n7.მეტი\n8.გამოსვლა\nშეიყვანე ციფრი:\t"))
 
 ## წითელი
+
 #### წითელი ჩართვა
-    if reply == "1":
+    if reply == 1:
         GPIO.output(RedLedPin,GPIO.HIGH)
 #### წითელი ციმციმი
-    elif reply == "2":
+    elif reply == 2:
         redblink = True
         while redblink == True:
             print("ციმციმი")
             replyredblink = input("1.ციმციმი\n2.ციმციმის გამორთვა\n")
-            if replyredblink == "1":
+            if replyredblink == 1:
                 BlinkNumberRed = int(input("რამდენჯერ უნდა დაიციმციმოს?"))
                 blinkpersecondred = int(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში "))
                 timesleepred = 1 / BlinkPerSecondRed
@@ -38,10 +39,10 @@ while i == 1:
                     time.sleep(timesleepred)
                     GPIO.output(RedLedPin,GPIO.LOW)
                     time.sleep(timesleepred)
-            elif replyredblink == "2":
+            elif replyredblink == 2:
                 redblink = False
 #### წითელი გამორთვა
-    elif reply == "3":
+    elif reply == 3:
         GPIO.output(RedLedPin,GPIO.LOW)
 
 ## მწვანე
