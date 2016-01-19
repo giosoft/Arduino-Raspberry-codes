@@ -8,6 +8,7 @@ HowManyLed = int(input("რამდენი ნათურა გაქვთ
 Leds = []
 for LedsLoop in range(HowManyLed):
     Leds.append(LedsLoop)
+    print(Leds)
 RedLedPin = int(input("%s ნათურის პინის ნომერი" % Leds[0]))
 greenledpin = 0
 whiteledpin = 15
