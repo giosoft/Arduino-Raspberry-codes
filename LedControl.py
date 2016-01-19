@@ -5,9 +5,12 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.cleanup()
 HowManyLed = int(input("რამდენი ნათურა გაქვთ?\t"))
+LedsNumber = []
+for LedsNumberLoop in range (HowManyLed):
+    LedsNumber.append(LedsNumberLoop + 1)
 Leds = []
-for Ledloop in range(1, HowManyLed + 1):
-    LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი" % Leds[Ledloop]))
+for LedLoop in range(1, HowManyLed + 1):
+    LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი" % Leds[LedLoop]))
     Leds.append(LedsInput)
 GPIO.setup(RedLedPin,GPIO.OUT)
 GPIO.setup(greenledpin,GPIO.OUT)
