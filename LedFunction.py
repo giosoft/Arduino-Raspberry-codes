@@ -6,7 +6,7 @@ def LedBasicControl(LedsNumber,LedPin):
         print("%s ნათურა აინთო" % LedsNumber)
 #### ციმციმი
     elif reply == 2:
-        blink = True
+        blink = TrueS
         while blink == True:
             print("\nციმციმი")
             replyblink = int(input("1.უხეში ციმციმი\n2.ნაზი ციმციმი\n3.ციმციმის გამორთვა\n"))
