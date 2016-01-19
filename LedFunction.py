@@ -1,7 +1,5 @@
 def LedBasicControl(LedsNumber,LedPin):
     global reply
-    global x
-    print(x)
     print(reply)
 #### ჩართვა
     if reply  == 1:
