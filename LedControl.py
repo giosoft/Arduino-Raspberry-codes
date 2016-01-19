@@ -31,8 +31,8 @@ while i == 1:
             print("ციმციმი")
             replyredblink = int(input("1.ციმციმი\n2.ციმციმის გამორთვა\n"))
             if replyredblink == 1:
-                BlinkNumberRed = int(input("რამდენჯერ უნდა დაიციმციმოს?\t"))
-                blinkpersecondred = int(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში\t"))
+                BlinkNumberRed = float(input("რამდენჯერ უნდა დაიციმციმოს?\t"))
+                blinkpersecondred = float(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში\t"))
                 timesleepred = 1 / BlinkPerSecondRed
                 for x in range(BlinkNumberRed):
                     GPIO.output(Leds[0],GPIO.HIGH)
