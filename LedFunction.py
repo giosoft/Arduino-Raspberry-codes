@@ -23,3 +23,4 @@ def LedBasicControl(LedsNumber,LedPin):
 #### გამორთვა
     elif reply == 3:
         GPIO.output(Leds[LedsNumber - 1],GPIO.LOW)
+    return;    
