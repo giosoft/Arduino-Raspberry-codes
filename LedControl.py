@@ -1,12 +1,13 @@
 import RPi.GPIO as GPIO
 import time
+import easygui
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-redledpin = 14
+RedLedPin = 14
 greenledpin = 18
 whiteledpin = 15
 blueledpin = 21
-GPIO.setup(redledpin,GPIO.OUT)
+GPIO.setup(RedLedPin,GPIO.OUT)
 GPIO.setup(greenledpin,GPIO.OUT)
 GPIO.setup(whiteledpin,GPIO.OUT)
 GPIO.setup(blueledpin,GPIO.OUT)
@@ -18,25 +19,28 @@ while i == 1:
     reply = int(input(msg, "\n", choices = choices))
 
 ## წითელი
-    if reply == "წითელი-ჩართვა":
-        GPIO.output(redledpin,GPIO.HIGH)
-    elif reply == "წითელი-ციმციმი":
+#### წითელი ჩართვა
+    if reply == "1":
+        GPIO.output(RedLedPin,GPIO.HIGH)
+#### წითელი ციმციმი
+    elif reply == "2":
         redblink = True
         while redblink == True:
             replyredblink = input("ციმციმი \n", choices = ["ციმციმი\n","ციმციმის გამორთვა\n"])
             if replyredblink == "ციმციმი":
-                blinknumberred = easygui.integerbox("რამდენჯერ უნდა დაიციმციმოს?")
-                blinkpersecondred = easygui.integerbox("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში ")
-                timesleepred = 1 / blinkpersecondred
-                for x in range(blinknumberred):
-                    GPIO.output(redledpin,GPIO.HIGH)
+                BlinkNumberRed = int(input("რამდენჯერ უნდა დაიციმციმოს?"))
+                blinkpersecondred = int(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში "))
+                timesleepred = 1 / BlinkPerSecondRed
+                for x in range(BlinkNumberRed):
+                    GPIO.output(RedLedPin,GPIO.HIGH)
                     time.sleep(timesleepred)
-                    GPIO.output(redledpin,GPIO.LOW)
+                    GPIO.output(RedLedPin,GPIO.LOW)
                     time.sleep(timesleepred)
             elif replyredblink == "ციმციმის გამორთვა":
                 redblink = False
-    elif reply == "წითელი-გამორთვა":
-        GPIO.output(redledpin,GPIO.LOW)
+#### წითელი გამორთვა
+    elif reply == "3":
+        GPIO.output(RedLedPin,GPIO.LOW)
 
 ## მწვანე
     elif reply == "მწვანე-ჩართვა":
@@ -80,7 +84,7 @@ while i == 1:
                             ledbrightnesswelcome = easygui.indexbox("წითელი ნათურის სიკაშკაშის კონტროლი\nგსურთ გაგრძელება?",choices = ["დიახ","არა"])
                             if ledbrightnesswelcome == 0:
                                 redledbrightnessdutycycle = easygui.integerbox("Duty cycle",default = 50,lowerbound = 0,upperbound = 100) # change later
-                                redbrightness = GPIO.PWM(redledpin,200)
+                                redbrightness = GPIO.PWM(RedLedPin,200)
                                 redbrightness.start(redledbrightnessdutycycle)
                             else:
                                 redbrightness.stop()
@@ -116,9 +120,9 @@ while i == 1:
                         speedofrandomblinkstring = easygui.enterbox("სიჩქარე")
                         speedofrandomblinkfloat = float(speedofrandomblinkstring)
                         for randomblinkforloop in range(numberofrandomblink):
-                            GPIO.output(redledpin,GPIO.HIGH) #red
+                            GPIO.output(RedLedPin,GPIO.HIGH) #red
                             time.sleep(speedofrandomblinkfloat)
-                            GPIO.output(redledpin,GPIO.LOW)
+                            GPIO.output(RedLedPin,GPIO.LOW)
                             GPIO.output(whiteledpin,GPIO.HIGH) #white
                             time.sleep(speedofrandomblinkfloat)
                             GPIO.output(whiteledpin,GPIO.LOW)
