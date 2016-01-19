@@ -9,7 +9,7 @@ Leds = []
 for LedsLoop in range(HowManyLed):
     Leds.append(LedsLoop)
 RedLedPin = int(input("%s ნათურის პინის ნომერი" % Leds[0]))
-greenledpin = pass
+greenledpin = 0
 whiteledpin = 15
 blueledpin = 21
 GPIO.setup(RedLedPin,GPIO.OUT)
