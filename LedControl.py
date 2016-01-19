@@ -17,14 +17,14 @@ for LedsLoop in range(1, HowManyLed + 1):
 
 i = 1
 while i == 1:
-    reply = int(input("LED ნათება\n1.წითელი-ჩართვა\n2.წითელი-ციმციმი\n3.წითელი-გამორთვა\n4.მწვანე-ჩართვა\n5.მწვანე-ციმციმი\n6.მწვანე-გამორთვა\n7.მეტი\n8.გამოსვლა\nშეიყვანე ციფრი:\t"))
+    reply = int(input("LED ნათება\n1.First Led-ჩართვა\n2.First Led-ციმციმი\n3.First Led-გამორთვა\n4.მწვანე-ჩართვა\n5.მწვანე-ციმციმი\n6.მწვანე-გამორთვა\n7.მეტი\n8.გამოსვლა\nშეიყვანე ციფრი:\t"))
 
-## წითელი
+## First Led
 
-#### წითელი ჩართვა
+#### First Led ჩართვა
     if reply == 1:
-        GPIO.output(RedLedPin,GPIO.HIGH)
-#### წითელი ციმციმი
+        GPIO.output(Leds[0],GPIO.HIGH)
+#### First Led ციმციმი
     elif reply == 2:
         redblink = True
         while redblink == True:
@@ -35,15 +35,15 @@ while i == 1:
                 blinkpersecondred = int(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში "))
                 timesleepred = 1 / BlinkPerSecondRed
                 for x in range(BlinkNumberRed):
-                    GPIO.output(RedLedPin,GPIO.HIGH)
+                    GPIO.output(Leds[0],GPIO.HIGH)
                     time.sleep(timesleepred)
-                    GPIO.output(RedLedPin,GPIO.LOW)
+                    GPIO.output(Leds[0],GPIO.LOW)
                     time.sleep(timesleepred)
             elif replyredblink == 2:
                 redblink = False
-#### წითელი გამორთვა
+#### First Led გამორთვა
     elif reply == 3:
-        GPIO.output(RedLedPin,GPIO.LOW)
+        GPIO.output(Leds[0],GPIO.LOW)
 
 ## მწვანე
     elif reply == "მწვანე-ჩართვა":
@@ -78,16 +78,16 @@ while i == 1:
             ## ნათურის არჩევა სიკაშკაშე
                 ledbrightnessledchoiceloop = True
                 while ledbrightnessledchoiceloop == True:
-                    ledchoicebrightness = easygui.buttonbox("აირჩიეთ ნათურა",choices = ["წითელი","მწვანე","თეთრი","გამოსვლა"])
+                    ledchoicebrightness = easygui.buttonbox("აირჩიეთ ნათურა",choices = ["First Led","მწვანე","თეთრი","გამოსვლა"])
 
-                    ## წითელი ნათურის სიკაშკაშე
-                    if ledchoicebrightness == "წითელი":
+                    ## First Led ნათურის სიკაშკაშე
+                    if ledchoicebrightness == "First Led":
                         redledbrightnessloop = True
                         while redledbrightnessloop == True:
-                            ledbrightnesswelcome = easygui.indexbox("წითელი ნათურის სიკაშკაშის კონტროლი\nგსურთ გაგრძელება?",choices = ["დიახ","არა"])
+                            ledbrightnesswelcome = easygui.indexbox("First Led ნათურის სიკაშკაშის კონტროლი\nგსურთ გაგრძელება?",choices = ["დიახ","არა"])
                             if ledbrightnesswelcome == 0:
                                 redledbrightnessdutycycle = easygui.integerbox("Duty cycle",default = 50,lowerbound = 0,upperbound = 100) # change later
-                                redbrightness = GPIO.PWM(RedLedPin,200)
+                                redbrightness = GPIO.PWM(Leds[0],200)
                                 redbrightness.start(redledbrightnessdutycycle)
                             else:
                                 redbrightness.stop()
@@ -123,9 +123,9 @@ while i == 1:
                         speedofrandomblinkstring = easygui.enterbox("სიჩქარე")
                         speedofrandomblinkfloat = float(speedofrandomblinkstring)
                         for randomblinkforloop in range(numberofrandomblink):
-                            GPIO.output(RedLedPin,GPIO.HIGH) #red
+                            GPIO.output(Leds[0],GPIO.HIGH) #red
                             time.sleep(speedofrandomblinkfloat)
-                            GPIO.output(RedLedPin,GPIO.LOW)
+                            GPIO.output(Leds[0],GPIO.LOW)
                             GPIO.output(whiteledpin,GPIO.HIGH) #white
                             time.sleep(speedofrandomblinkfloat)
                             GPIO.output(whiteledpin,GPIO.LOW)
