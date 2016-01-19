@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import easygui
-from LedFunction import LedBasicControl
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.cleanup()
@@ -17,6 +17,7 @@ for LedsLoop in range(1, HowManyLed + 1):
     GPIO.setup(Leds[LedsLoop - 1],GPIO.OUT)
 
 def LedBasicControl(LedsNumber,LedPin):
+    global reply
     print(reply)
 #### ჩართვა
     if reply  == 1:
