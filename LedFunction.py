@@ -5,7 +5,7 @@ def LedBasicControl(LedsNumber,LedPin):
 #### ჩართვა
     if reply  == 1:
         GPIO.output(Leds[LedsNumber - 1],GPIO.HIGH)
-        print("%s ნათურა აინთო", % LedsNumber)
+        print("%s ნათურა აინთო" % LedsNumber)
 #### ციმციმი
     elif reply == 2:
         blink = True
