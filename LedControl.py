@@ -3,8 +3,13 @@ import time
 import easygui
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-RedLedPin = 14
-greenledpin = 18
+GPIO.cleanup()
+HowManyLed = int(input("რამდენი ნათურა გაქვთ?\t"))
+Leds = []
+for LedsLoop in range(HowManyLed):
+    Leds.append(LedsLoop)
+RedLedPin = int(input("%s ნათურის პინის ნომერი" %))
+greenledpin = pass
 whiteledpin = 15
 blueledpin = 21
 GPIO.setup(RedLedPin,GPIO.OUT)
@@ -14,7 +19,7 @@ GPIO.setup(blueledpin,GPIO.OUT)
 
 i = 1
 while i == 1:
-    reply = int(input("LED ნათება\n1.წითელი-ჩართვა\n2.წითელი-ციმციმი\n3.წითელი-გამორთვა\n4.მწვანე-ჩართვა5.მწვანე-ციმციმი\n6.მწვანე-გამორთვა\n7.მეტი\n8.გამოსვლა"))
+    reply = int(input("LED ნათება\n1.წითელი-ჩართვა\n2.წითელი-ციმციმი\n3.წითელი-გამორთვა\n4.მწვანე-ჩართვა\n5.მწვანე-ციმციმი\n6.მწვანე-გამორთვა\n7.მეტი\n8.გამოსვლა\nშეიყვანე ციფრი:\t"))
 
 ## წითელი
 #### წითელი ჩართვა
@@ -24,8 +29,9 @@ while i == 1:
     elif reply == "2":
         redblink = True
         while redblink == True:
-            replyredblink = input("ციმციმი \n","ციმციმი\n","ციმციმის გამორთვა\n")
-            if replyredblink == "ციმციმი":
+            print("ციმციმი")
+            replyredblink = input("1.ციმციმი\n2.ციმციმის გამორთვა\n")
+            if replyredblink == "1":
                 BlinkNumberRed = int(input("რამდენჯერ უნდა დაიციმციმოს?"))
                 blinkpersecondred = int(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში "))
                 timesleepred = 1 / BlinkPerSecondRed
@@ -34,7 +40,7 @@ while i == 1:
                     time.sleep(timesleepred)
                     GPIO.output(RedLedPin,GPIO.LOW)
                     time.sleep(timesleepred)
-            elif replyredblink == "ციმციმის გამორთვა":
+            elif replyredblink == "2":
                 redblink = False
 #### წითელი გამორთვა
     elif reply == "3":
