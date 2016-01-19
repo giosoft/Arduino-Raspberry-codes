@@ -6,7 +6,7 @@ GPIO.setwarnings(False)
 GPIO.cleanup()
 HowManyLed = int(input("რამდენი ნათურა გაქვთ?\t"))
 Leds = []
-for LedsLoop in range(1,HowManyLed += 1):
+for LedsLoop in range(1,HowManyLed =+ 1):
     Leds.append(LedsLoop)
     print(Leds)
 RedLedPin = int(input("%s ნათურის პინის ნომერი" % Leds[0]))
