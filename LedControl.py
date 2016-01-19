@@ -29,17 +29,17 @@ while i == 1:
         redblink = True
         while redblink == True:
             print("ციმციმი")
-            replyredblink = input("1.ციმციმი\n2.ციმციმის გამორთვა\n")
+            replyredblink = int(input("1.ციმციმი\n2.ციმციმის გამორთვა\n"))
             if replyredblink == 1:
-                BlinkNumberRed = int(input("რამდენჯერ უნდა დაიციმციმოს?"))
-                blinkpersecondred = int(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში "))
+                BlinkNumberRed = int(input("რამდენჯერ უნდა დაიციმციმოს?\t"))
+                blinkpersecondred = int(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში\t"))
                 timesleepred = 1 / BlinkPerSecondRed
                 for x in range(BlinkNumberRed):
                     GPIO.output(Leds[0],GPIO.HIGH)
                     time.sleep(timesleepred)
                     GPIO.output(Leds[0],GPIO.LOW)
                     time.sleep(timesleepred)
-            elif replyredblink == 2:
+            else:
                 redblink = False
 #### First Led გამორთვა
     elif reply == 3:
