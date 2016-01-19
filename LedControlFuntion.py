@@ -8,12 +8,13 @@ HowManyLed = int(input("რამდენი ნათურა გაქვთ
 LedsNumber = []
 for LedsNumberLoop in range (HowManyLed):
     LedsNumber.append(LedsNumberLoop + 1)
+print(LedsNumber)
 Leds = []
 for LedsLoop in range(1, HowManyLed + 1):
     LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი:\t" % LedsNumber[LedsLoop - 1]))
     Leds.append(LedsInput)
     GPIO.setup(Leds[LedsLoop - 1],GPIO.OUT)
-
+print(Leds)
 def LedBasicControl(LedsNumber,LedPin):
 #### ჩართვა
     if reply  == 1:
