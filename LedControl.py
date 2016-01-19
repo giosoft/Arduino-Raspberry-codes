@@ -32,7 +32,7 @@ while i == 1:
             print("\nციმციმი")
             replyredblink = int(input("1.ციმციმი\n2.ციმციმის გამორთვა\n"))
             if replyredblink == 1:
-                BlinkNumberRed = float(input("რამდენჯერ უნდა დაიციმციმოს?\t"))
+                BlinkNumberRed = int(input("რამდენჯერ უნდა დაიციმციმოს?\t"))
                 BlinkPerSecondRed = float(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში\t"))
                 timesleepred = 1 / BlinkPerSecondRed
                 for x in range(BlinkNumberRed):
