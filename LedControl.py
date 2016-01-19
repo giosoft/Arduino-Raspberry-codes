@@ -18,21 +18,22 @@ for LedsLoop in range(1, HowManyLed + 1):
 i = 1
 while i == 1:
     reply = int(input("LED ნათება\n1.First Led-ჩართვა\n2.First Led-ციმციმი\n3.First Led-გამორთვა\n4.მწვანე-ჩართვა\n5.მწვანე-ციმციმი\n6.მწვანე-გამორთვა\n7.მეტი\n8.გამოსვლა\nშეიყვანე ციფრი:\t"))
-
+    print("\n")
 ## First Led
 
 #### First Led ჩართვა
     if reply == 1:
         GPIO.output(Leds[0],GPIO.HIGH)
+        print("ნათურა აინთო")
 #### First Led ციმციმი
     elif reply == 2:
         redblink = True
         while redblink == True:
-            print("ციმციმი")
+            print("\nციმციმი")
             replyredblink = int(input("1.ციმციმი\n2.ციმციმის გამორთვა\n"))
             if replyredblink == 1:
                 BlinkNumberRed = float(input("რამდენჯერ უნდა დაიციმციმოს?\t"))
-                blinkpersecondred = float(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში\t"))
+                BlinkPerSecondRed = float(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში\t"))
                 timesleepred = 1 / BlinkPerSecondRed
                 for x in range(BlinkNumberRed):
                     GPIO.output(Leds[0],GPIO.HIGH)
