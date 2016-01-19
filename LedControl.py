@@ -16,7 +16,7 @@ i = 1
 while i == 1:
     msg = "LED ნათება"
     choices = ["1.წითელი-ჩართვა\n","2.წითელი-ციმციმი\n","3.წითელი-გამორთვა","4.მწვანე-ჩართვა","5.მწვანე-ციმციმი","6.მწვანე-გამორთვა","7.მეტი","8.გამოსვლა"]
-    reply = int(input(msg, "\n", choices = choices))
+    reply = int(input(msg, "\n",choices))
 
 ## წითელი
 #### წითელი ჩართვა
@@ -26,7 +26,7 @@ while i == 1:
     elif reply == "2":
         redblink = True
         while redblink == True:
-            replyredblink = input("ციმციმი \n", choices = ["ციმციმი\n","ციმციმის გამორთვა\n"])
+            replyredblink = input("ციმციმი \n","ციმციმი\n","ციმციმის გამორთვა\n")
             if replyredblink == "ციმციმი":
                 BlinkNumberRed = int(input("რამდენჯერ უნდა დაიციმციმოს?"))
                 blinkpersecondred = int(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში "))
