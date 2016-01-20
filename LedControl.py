@@ -19,12 +19,18 @@ i = 1
 while i == 1:
     for MenuLoop in range(HowManyLed):
         MenuList = ["LED ნათება\n","1080.მეტი\n1090.გამოსვლა\nშეიყვანე ციფრი:\t"]
-        MenuListLedNumber = 1
         MenuListIndex = 1
+        MenuListLedNumber = 1
         MenuListNumberOne = 1
         MenuListNumberTwo = 2
         MenuListNumberThree = 3
-        MenuListString = MenuListNumberOne,". ",MenuListLedNumber," ნათურა - ჩართვა\n",MenuListNumberTwo,". ",MenuListLedNumber," ნათურა - ციმციმი\n",MenuListNumberThree,". ",MenuListLedNumber," ნათურა - გამორთვა\n"
+
+        strMenuListLedNumber = str(MenuListLedNumber)
+        strMenuListNumberOne = str(MenuListNumberOne)
+        strMenuListNumberTwo = str(MenuListNumberTwo)
+        strMenuListNumberThree = str(MenuListNumberThree)
+
+        MenuListString = strMenuListNumberOne,". ",strMenuListLedNumber," ნათურა - ჩართვა\n",strMenuListNumberTwo,". ",strMenuListLedNumber," ნათურა - ციმციმი\n",strMenuListNumberThree,". ",strMenuListLedNumber," ნათურა - გამორთვა\n"
         MenuList.insert(MenuListIndex, MenuListString)
         MenuListLedNumber += 1
         MenuListIndex += 1
