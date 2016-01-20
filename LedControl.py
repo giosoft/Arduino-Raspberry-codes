@@ -17,8 +17,21 @@ for LedsLoop in range(1, HowManyLed + 1):
 print(Leds)
 i = 1
 while i == 1:
-    #for MenuLoop in (HowManyLed)
-    reply = int(input("LED ნათება\n1.პირველი ნათურა - ჩართვა\n2.პირველი ნათურა - ციმციმი\n3.პირველი ნათურა - გამორთვა\n4.მწვანე - ჩართვა\n5.მწვანე - ციმციმი\n6.მწვანე - გამორთვა\n7.მეტი\n8.გამოსვლა\nშეიყვანე ციფრი:\t"))
+    for MenuLoop in range(HowManyLed - 1):
+        MenuList = ["LED ნათება\n","1080.მეტი\n1090.გამოსვლა\nშეიყვანე ციფრი:\t"]
+        MenuListLedNumber = 1
+        MenuListIndex = 1
+        MenuListNumberOne = 1
+        MenuListNumberTwo = 2
+        MenuListNumberThree = 3
+        MenuListNumbers = [MenuListNumberOne,MenuListNumberTwo,MenuListNumberThree]
+        MenuList.insert(MenuListIndex, MenuListNumberOne + ". " + MenuListLedNumber + " ნათურა - ჩართვა\n" + MenuListNumberTwo + ". " + MenuListLedNumber + " ნათურა - ციმციმი\n" + MenuListNumberThree + ". " + MenuListLedNumber + " ნათურა - გამორთვა\n")
+        MenuListLedNumber += 1
+        MenuListIndex += 1
+        MenuListNumberOne += 3
+        MenuListNumberTwo += 3
+        MenuListNumberThree += 3
+    reply = int(input())
     print("\n")
 ## First Led
 
@@ -69,7 +82,7 @@ while i == 1:
         GPIO.output(greenledpin,GPIO.LOW)
 
 ## მენიუ მეტი
-    elif reply == "მეტი":
+    elif reply == 1080:
         meti = True
         while meti == True:
             metimenu = easygui.buttonbox("დააჭირეთ ღილაკს",choices = ["ნათურის სიკაშკაშე","შემთხვევითი ნათება","მასიური ციმციმი","გამოსვლა"])
