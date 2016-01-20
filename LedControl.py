@@ -32,12 +32,14 @@ while i == 1:
 
         MenuListString = strMenuListNumberOne + ". " + strMenuListLedNumber + " ნათურა - ჩართვა\n" + strMenuListNumberTwo + ". " + strMenuListLedNumber + " ნათურა - ციმციმი\n" + strMenuListNumberThree + ". " + strMenuListLedNumber + " ნათურა - გამორთვა\n"
         MenuList.insert(MenuListIndex, MenuListString)
+
         MenuListLedNumber += 1
         MenuListIndex += 1
         MenuListNumberOne += 3
         MenuListNumberTwo += 3
         MenuListNumberThree += 3
-    MenuList = ''.join(str(e) for e in MenuList)
+
+    MenuList = ''.join(MenuList)
     reply = int(input(MenuList))
     print("\n")
 ## First Led
