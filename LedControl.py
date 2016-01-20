@@ -24,14 +24,13 @@ while i == 1:
         MenuListNumberOne = 1
         MenuListNumberTwo = 2
         MenuListNumberThree = 3
-        MenuListNumbers = [MenuListNumberOne,MenuListNumberTwo,MenuListNumberThree]
         MenuList.insert(MenuListIndex, MenuListNumberOne + ". " + MenuListLedNumber + " ნათურა - ჩართვა\n" + MenuListNumberTwo + ". " + MenuListLedNumber + " ნათურა - ციმციმი\n" + MenuListNumberThree + ". " + MenuListLedNumber + " ნათურა - გამორთვა\n")
         MenuListLedNumber += 1
         MenuListIndex += 1
         MenuListNumberOne += 3
         MenuListNumberTwo += 3
         MenuListNumberThree += 3
-    reply = int(input(MenuList))
+        reply = int(input(MenuList))
     print("\n")
 ## First Led
 
