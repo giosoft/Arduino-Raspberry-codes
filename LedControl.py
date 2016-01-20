@@ -30,7 +30,7 @@ while i == 1:
         strMenuListNumberTwo = str(MenuListNumberTwo)
         strMenuListNumberThree = str(MenuListNumberThree)
 
-        MenuListString = strMenuListNumberOne + ". " + strMenuListLedNumber + " ნათურა - ჩართვა\n" + strMenuListNumberTwo + ". " + strMenuListLedNumber + " ნათურა - ციმციმი\n" + strMenuListNumberThree,". " + strMenuListLedNumber + " ნათურა - გამორთვა\n"
+        MenuListString = strMenuListNumberOne + ". " + strMenuListLedNumber + " ნათურა - ჩართვა\n" + strMenuListNumberTwo + ". " + strMenuListLedNumber + " ნათურა - ციმციმი\n" + strMenuListNumberThree + ". " + strMenuListLedNumber + " ნათურა - გამორთვა\n"
         MenuList.insert(MenuListIndex, MenuListString)
         MenuListLedNumber += 1
         MenuListIndex += 1
