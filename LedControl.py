@@ -37,7 +37,7 @@ while i == 1:
         MenuListNumberOne += 3
         MenuListNumberTwo += 3
         MenuListNumberThree += 3
-    MenuList = '\n'.join(MenuList)
+    MenuList = ''.join(str(e) for e in MenuList)
     reply = int(input(MenuList))
     print("\n")
 ## First Led
