@@ -1,10 +1,11 @@
-import RPi.GPIO as GPIO
+# -*- coding: utf-8 -*-
+# import RPi.GPIO as GPIO
 import time
 import easygui
-from LedFunction import LedBasicControl
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.cleanup()
+import LedFunction
+# GPIO.setmode(GPIO.BCM)
+# GPIO.setwarnings(False)
+# GPIO.cleanup()
 
 HowManyLed = int(input("რამდენი ნათურა გაქვთ?\t"))
 LedsNumber = []
@@ -14,7 +15,7 @@ Leds = []
 for LedsLoop in range(1, HowManyLed + 1):
     LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი:\t" % LedsNumber[LedsLoop - 1]))
     Leds.append(LedsInput)
-    GPIO.setup(Leds[LedsLoop - 1],GPIO.OUT)
+    # GPIO.setup(Leds[LedsLoop - 1],GPIO.OUT)
 
 
 i = 1
@@ -24,13 +25,14 @@ while i == 1:
 ####
     Ham = True
     if Ham == True:
-        LedBasicControl(LedsNumber[0],Leds[0])
+        print(reply)
+        LedFunction.LedBasicControl(LedsNumber[0])
     ## გამოსვლა
     else:
         exit = easygui.buttonbox("ნამდვიალად გსურთ გამოსვლა?",choices=["კი","არა"])
         if exit == ("კი"):
             i=2
-            GPIO.cleanup()
+            # GPIO.cleanup()
         else:
             print("-")
             pass

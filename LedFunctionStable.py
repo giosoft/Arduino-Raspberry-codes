@@ -1,8 +1,8 @@
-def LedBasicControl(LedsNumberFution):
+def LedBasicControl(LedsNumber,LedPin):
 #### ჩართვა
     if reply  == 1:
-        # GPIO.output(Leds[LedsNumberFunction - 1],GPIO.HIGH)
-        print("%s ნათურა აინთო" % LedsNumberFunction)
+        GPIO.output(Leds[LedsNumber - 1],GPIO.HIGH)
+        print("%s ნათურა აინთო" % LedsNumber)
 #### ციმციმი
     elif reply == 2:
         blink = TrueS
@@ -14,13 +14,13 @@ def LedBasicControl(LedsNumberFution):
                 BlinkPerSecond = float(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში\t"))
                 TimeSleep = 1 / BlinkPerSecond
                 for x in range(BlinkNumberRed):
-                    # GPIO.output(Leds[LedsNumberFunction - 1],GPIO.HIGH)
+                    GPIO.output(Leds[LedsNumber - 1],GPIO.HIGH)
                     time.sleep(TimeSleep)
-                    # GPIO.output(Leds[LedsNumber - 1],GPIO.LOW)
+                    GPIO.output(Leds[LedsNumber - 1],GPIO.LOW)
                     time.sleep(TimeSleep)
             else:
                 blink = False
 #### გამორთვა
     elif reply == 3:
-        # GPIO.output(Leds[LedsNumber - 1],GPIO.LOW)
-        pass
+        GPIO.output(Leds[LedsNumber - 1],GPIO.LOW)
+    return;
