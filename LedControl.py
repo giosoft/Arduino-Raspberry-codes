@@ -24,7 +24,8 @@ while i == 1:
         MenuListNumberOne = 1
         MenuListNumberTwo = 2
         MenuListNumberThree = 3
-        MenuList.insert(MenuListIndex, MenuListNumberOne + ". " + MenuListLedNumber + " ნათურა - ჩართვა\n" + MenuListNumberTwo + ". " + MenuListLedNumber + " ნათურა - ციმციმი\n" + MenuListNumberThree + ". " + MenuListLedNumber + " ნათურა - გამორთვა\n")
+
+        MenuList.insert(MenuListIndex, MenuListNumberOne,". ",MenuListLedNumber," ნათურა - ჩართვა\n",MenuListNumberTwo,". ",MenuListLedNumber," ნათურა - ციმციმი\n",MenuListNumberThree,". ",MenuListLedNumber," ნათურა - გამორთვა\n")
         MenuListLedNumber += 1
         MenuListIndex += 1
         MenuListNumberOne += 3
