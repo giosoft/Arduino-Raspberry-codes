@@ -17,7 +17,7 @@ for LedsLoop in range(1, HowManyLed + 1):
 print(Leds)
 i = 1
 while i == 1:
-    for MenuLoop in (HowManyLed)
+    #for MenuLoop in (HowManyLed)
     reply = int(input("LED ნათება\n1.პირველი ნათურა - ჩართვა\n2.პირველი ნათურა - ციმციმი\n3.პირველი ნათურა - გამორთვა\n4.მწვანე - ჩართვა\n5.მწვანე - ციმციმი\n6.მწვანე - გამორთვა\n7.მეტი\n8.გამოსვლა\nშეიყვანე ციფრი:\t"))
     print("\n")
 ## First Led
