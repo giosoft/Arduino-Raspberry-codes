@@ -31,7 +31,8 @@ while i == 1:
         MenuListNumberOne += 3
         MenuListNumberTwo += 3
         MenuListNumberThree += 3
-        reply = int(input(MenuList))
+    MenuList = tuple(MenuList)
+    reply = int(input(MenuList))
     print("\n")
 ## First Led
 
