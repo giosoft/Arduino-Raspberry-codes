@@ -8,15 +8,17 @@ HowManyLed = int(input("რამდენი ნათურა გაქვთ
 LedsNumber = []
 for LedsNumberLoop in range (HowManyLed):
     LedsNumber.append(LedsNumberLoop + 1)
+print(LedsNumber)
 Leds = []
 for LedsLoop in range(1, HowManyLed + 1):
     LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი:\t" % LedsNumber[LedsLoop - 1]))
     Leds.append(LedsInput)
     GPIO.setup(Leds[LedsLoop - 1],GPIO.OUT)
-
+print(Leds)
 i = 1
 while i == 1:
-    reply = int(input("LED ნათება\n1.First Led-ჩართვა\n2.First Led-ციმციმი\n3.First Led-გამორთვა\n4.მწვანე-ჩართვა\n5.მწვანე-ციმციმი\n6.მწვანე-გამორთვა\n7.მეტი\n8.გამოსვლა\nშეიყვანე ციფრი:\t"))
+    for MenuLoop in (HowManyLed)
+    reply = int(input("LED ნათება\n1.პირველი ნათურა - ჩართვა\n2.პირველი ნათურა - ციმციმი\n3.პირველი ნათურა - გამორთვა\n4.მწვანე - ჩართვა\n5.მწვანე - ციმციმი\n6.მწვანე - გამორთვა\n7.მეტი\n8.გამოსვლა\nშეიყვანე ციფრი:\t"))
     print("\n")
 ## First Led
 
@@ -87,7 +89,7 @@ while i == 1:
                             ledbrightnesswelcome = easygui.indexbox("First Led ნათურის სიკაშკაშის კონტროლი\nგსურთ გაგრძელება?",choices = ["დიახ","არა"])
                             if ledbrightnesswelcome == 0:
                                 redledbrightnessdutycycle = easygui.integerbox("Duty cycle",default = 50,lowerbound = 0,upperbound = 100) # change later
-                                redbrightness = GPIO.PWM(Leds[0],200)
+                                redbrightness = GPIO.PWM(Leds[0], 200)
                                 redbrightness.start(redledbrightnessdutycycle)
                             else:
                                 redbrightness.stop()
@@ -123,15 +125,19 @@ while i == 1:
                         speedofrandomblinkstring = easygui.enterbox("სიჩქარე")
                         speedofrandomblinkfloat = float(speedofrandomblinkstring)
                         for randomblinkforloop in range(numberofrandomblink):
+
                             GPIO.output(Leds[0],GPIO.HIGH) #red
                             time.sleep(speedofrandomblinkfloat)
                             GPIO.output(Leds[0],GPIO.LOW)
+
                             GPIO.output(whiteledpin,GPIO.HIGH) #white
                             time.sleep(speedofrandomblinkfloat)
                             GPIO.output(whiteledpin,GPIO.LOW)
+
                             GPIO.output(greenledpin,GPIO.HIGH) #green
                             time.sleep(speedofrandomblinkfloat)
                             GPIO.output(greenledpin,GPIO.LOW)
+
                             GPIO.output(blueledpin,GPIO.HIGH) #blueledpin
                             time.sleep(speedofrandomblinkfloat)
                             GPIO.output(blueledpin,GPIO.LOW)

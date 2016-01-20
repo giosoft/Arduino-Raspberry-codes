@@ -1,4 +1,4 @@
-def LedBasicControl(LedsNumber,LedPin):
+def LedBasicControl(LedsNumber):
 #### ჩართვა
     if reply  == 1:
         GPIO.output(Leds[LedsNumber - 1],GPIO.HIGH)

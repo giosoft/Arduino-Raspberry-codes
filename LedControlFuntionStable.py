@@ -58,12 +58,10 @@ while i == 1:
     reply = int(input("LED ნათება\n\t1.First Led - ჩართვა\n\t2. Led-ციმციმი\n\t3.First Led - გამორთვა\n\t4.მეტი\n\t5.გამოსვლა\n\tშეიყვანე ციფრი:\n\t"))
     print("\n")
 
-    Ham = True
-    if Ham == True:
-        LedBasicControl(LedsNumber[0],Leds[0])
+    LedBasicControl(LedsNumber[0],Leds[0])
 
 ## გამოსვლა
-    else:
+    if reply == 5:
         exit = easygui.buttonbox("ნამდვიალად გსურთ გამოსვლა?",choices=["კი","არა"])
         if exit == ("კი"):
             i=2
