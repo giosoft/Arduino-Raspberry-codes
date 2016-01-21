@@ -1,3 +1,10 @@
+import RPi.GPIO as GPIO
+import time
+import easygui
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.cleanup()
+Leds = [14]
 while True:
     LedFadeInput = int(input("\nგსურთ გაგრძელება?\n1.დიახ\n2.არა"))
     if LedFadeInput == 1:
