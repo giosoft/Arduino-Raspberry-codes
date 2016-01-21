@@ -5,6 +5,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.cleanup()
 Leds = [14]
+GPIO.setup(Leds[0],GPIO.OUT)
+
 while True:
     LedFadeInput = int(input("\nგსურთ გაგრძელება?\n1.დიახ\n2.არა"))
     if LedFadeInput == 1:
