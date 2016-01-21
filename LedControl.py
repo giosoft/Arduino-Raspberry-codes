@@ -48,7 +48,7 @@ while i == 1:
 ## პირველი ნათურა
 #### პირველი ნათურა ჩართვა
     if reply == 1:
-        AdvancedFunctions.AdvancedFunctions(1)
+        AdvancedFunctions.TurnLedOnFunction(1)
 
 #### პირველი ნათურა ციმციმი
     elif reply == 2:
@@ -61,7 +61,7 @@ while i == 1:
 ## მეორე ნათურა
 #### მეორე ნათურის ჩართვა
     if reply == 4:
-        AdvancedFunctions.AdvancedFunctions(2)
+        AdvancedFunctions.TurnLedOnFunction(2)
 
 #### მეორე ნათურის ციმციმი
     elif reply == 5:
@@ -74,7 +74,7 @@ while i == 1:
 ## მესამე ნათურა
 #### მესამე ნათურის ჩართვა
     if reply == 7:
-        AdvancedFunctions.AdvancedFunctions(3)
+        AdvancedFunctions.TurnLedOnFunction(3)
 
 #### მესამე ნათურის ციმციმი
     elif reply == 8:
