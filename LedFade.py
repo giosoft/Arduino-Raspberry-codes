@@ -18,7 +18,7 @@ while True:
 
         for FadeDown in range(100):
             LedFade = GPIO.PWM(Leds[0], 200)
-            LedFade.start(LedFadeDutyCycle)
+            # LedFade.start(LedFadeDutyCycle)
             LedFadeDutyCycle += 1
     else:
         LedFade.stop()
