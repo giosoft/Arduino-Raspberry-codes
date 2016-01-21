@@ -33,7 +33,6 @@ def TurnLedOffFunction (LedsNumberFunction):
 import RPi.GPIO as GPIO
 import time
 import easygui
-import AdvancedFunctions
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.cleanup()
@@ -80,41 +79,41 @@ while i == 1:
 ## პირველი ნათურა
 #### პირველი ნათურა ჩართვა
     if reply == 1:
-        AdvancedFunctions.TurnLedOnFunction(1)
+        TurnLedOnFunction(1)
 
 #### პირველი ნათურა ციმციმი
     elif reply == 2:
-        AdvancedFunctions.LedBlinkFunction(1)
+        LedBlinkFunction(1)
 
 #### პირველი ნათურა გამორთვა
     elif reply == 3:
-        AdvancedFunctions.TurnLedOffFunction(1)
+        TurnLedOffFunction(1)
 
 ## მეორე ნათურა
 #### მეორე ნათურის ჩართვა
     if reply == 4:
-        AdvancedFunctions.TurnLedOnFunction(2)
+        TurnLedOnFunction(2)
 
 #### მეორე ნათურის ციმციმი
     elif reply == 5:
-        AdvancedFunctions.LedBlinkFunction(2)
+        LedBlinkFunction(2)
 
 #### მეორე ნათურის გამორთვა
     elif reply == 6:
-        AdvancedFunctions.TurnLedOffFunction(2)
+        TurnLedOffFunction(2)
 
 ## მესამე ნათურა
 #### მესამე ნათურის ჩართვა
     if reply == 7:
-        AdvancedFunctions.TurnLedOnFunction(3)
+        TurnLedOnFunction(3)
 
 #### მესამე ნათურის ციმციმი
     elif reply == 8:
-        AdvancedFunctions.LedBlinkFunction(3)
+        LedBlinkFunction(3)
 
 #### მესამე ნათურის გამორთვა
     elif reply == 9:
-        AdvancedFunctions.TurnLedOffFunction(3)
+        TurnLedOffFunction(3)
 
 ## მენიუ მეტი
     elif reply == 1080:
