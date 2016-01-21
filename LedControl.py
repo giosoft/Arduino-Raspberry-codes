@@ -26,7 +26,7 @@ def LedBlinkFunction(LedsNumberFunction):
         elif ReplyLedBlink  == 2:
             LedFadeLoop = True
             while LedFadeLoop == True:
-                LedFadeInput = int(input("\nგსურთ გაგრძელება?\n1.დიახ\n2.არა"]))
+                LedFadeInput = int(input("\nგსურთ გაგრძელება?\n1.დიახ\n2.არა"))
                 if LedFadeInput == 1:
                     for FadeDown in range(100)
                         LedFadeDutyCycle = 100
