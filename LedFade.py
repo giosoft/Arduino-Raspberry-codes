@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import time
-import easygui
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.cleanup()
@@ -21,6 +20,7 @@ while True:
             LedFade = GPIO.PWM(Leds[0], 200)
             # LedFade.start(LedFadeDutyCycle)
             LedFadeDutyCycle += 1
+            time.sleep(0.001)
     else:
         LedFade.stop()
         LedFadeLoop = False
