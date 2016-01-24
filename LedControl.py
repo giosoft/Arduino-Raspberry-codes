@@ -95,11 +95,12 @@ for MenuLoop in range(HowManyLed):
     MenuListNumberThree += 3
 
 MenuList = ''.join(MenuList)
-reply = int(input(MenuList))
-print("\n")
 
 i = 1
 while i == 1:
+
+    reply = int(input(MenuList, "\n"))
+    print("\n")
 
 ## პირველი ნათურა
 #### პირველი ნათურა ჩართვა
