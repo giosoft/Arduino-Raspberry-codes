@@ -1,4 +1,4 @@
-import gpiozero
-Leds = [14,18,20]
-LedName = ["asd","add"]
-LedName[0] = gpiozero.LED(Leds[0])
+from gpiozero import LED
+LedName = {}
+LedName[1] = LED(14)
+LedName[1]
