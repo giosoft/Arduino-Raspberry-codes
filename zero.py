@@ -1,4 +1,4 @@
-from gpiozero import PWMLED
+from gpiozero import *
 from time import sleep
 
 LedName = {}
