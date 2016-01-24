@@ -53,7 +53,7 @@ def TurnLedOffFunction (LedsNumberFunction):
 
 #####################
 
-import RPi.GPIO as GPIO
+from gpiozero import LED
 from time import sleep
 import easygui
 GPIO.setmode(GPIO.BCM)
