@@ -57,11 +57,13 @@ import easygui
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.cleanup()
+
 HowManyLed = int(input("რამდენი ნათურა გაქვთ?\t"))
 LedsNumber = []
 for LedsNumberLoop in range (HowManyLed):
     LedsNumber.append(LedsNumberLoop + 1)
 print(LedsNumber)
+
 Leds = []
 for LedsLoop in range(1, HowManyLed + 1):
     LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი:\t" % LedsNumber[LedsLoop - 1]))
@@ -69,15 +71,22 @@ for LedsLoop in range(1, HowManyLed + 1):
     GPIO.setup(Leds[LedsLoop - 1],GPIO.OUT)
 print(Leds)
 
+MenuList = ["LED ნათება\n","1080.მეტი\n1090.გამოსვლა\nშეიყვანე ციფრი:\t"]
+MenuListIndex = 1
+MenuListLedNumber = 1
+MenuListNumberOne = 1
+MenuListNumberTwo = 2
+MenuListNumberThree = 3
+
 i = 1
 while i == 1:
-    for MenuLoop in range(1, HowManyLed + 1): 
-        MenuList = ["LED ნათება\n","1080.მეტი\n1090.გამოსვლა\nშეიყვანე ციფრი:\t"]
-        MenuListIndex = 1
-        MenuListLedNumber = 1
-        MenuListNumberOne = 1
-        MenuListNumberTwo = 2
-        MenuListNumberThree = 3
+    for MenuLoop in range(1, HowManyLed + 1):
+
+        MenuListLedNumber += 1
+        MenuListIndex += 1
+        MenuListNumberOne += 3
+        MenuListNumberTwo += 3
+        MenuListNumberThree += 3
 
         strMenuListLedNumber = str(MenuListLedNumber)
         strMenuListNumberOne = str(MenuListNumberOne)
@@ -86,12 +95,6 @@ while i == 1:
 
         MenuListString = strMenuListNumberOne + ". " + strMenuListLedNumber + " ნათურა - ჩართვა\n" + strMenuListNumberTwo + ". " + strMenuListLedNumber + " ნათურა - ციმციმი\n" + strMenuListNumberThree + ". " + strMenuListLedNumber + " ნათურა - გამორთვა\n"
         MenuList.insert(MenuListIndex, MenuListString)
-
-        MenuListLedNumber += 1
-        MenuListIndex += 1
-        MenuListNumberOne += 3
-        MenuListNumberTwo += 3
-        MenuListNumberThree += 3
 
     MenuList = ''.join(MenuList)
     reply = int(input(MenuList))
