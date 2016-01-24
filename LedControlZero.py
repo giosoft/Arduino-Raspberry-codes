@@ -1,7 +1,7 @@
 ###################
 
 def TurnLedOnFunction(LedsNumberFunction):
-    GPIO.output(Leds [LedsNumberFunction - 1],GPIO.HIGH)
+    Leds[LedsNumberFunction].on()
     print("ნათურა აინთო!")
     return;
 
@@ -17,11 +17,7 @@ def LedBlinkFunction(LedsNumberFunction):
             TimeSleepLed = 1 / BlinkPerSecondLed
             for x in range(BlinkNumberLed):
 
-                GPIO.output(Leds [LedsNumberFunction - 1], GPIO.HIGH)
-                sleep(TimeSleepLed)
-
-                GPIO.output(Leds [LedsNumberFunction - 1], GPIO.LOW)
-                sleep(TimeSleepLed)
+                Leds[LedsNumberFunction].blink(TimeSleepLed,TimeSleepLed,BlinkNumberLed)
 
         elif ReplyLedBlink  == 2:
             LedFadeLoop = True
@@ -47,13 +43,14 @@ def LedBlinkFunction(LedsNumberFunction):
     return;
 
 def TurnLedOffFunction (LedsNumberFunction):
-    GPIO.output(Leds[0],GPIO.LOW)
+    Leds[LedsNumberFunction].off()
     print("ნათურა გამოირთო!")
     return;
 
 #####################
 
 from gpiozero import LED
+import RPi.GPIO as GPIO
 from time import sleep
 import easygui
 GPIO.setmode(GPIO.BCM)
@@ -66,11 +63,10 @@ for LedsNumberLoop in range (HowManyLed):
     LedsNumber.append(LedsNumberLoop + 1)
 print(LedsNumber)
 
-Leds = []
+Leds = {}
 for LedsLoop in range(1, HowManyLed + 1):
     LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი:\t" % LedsNumber[LedsLoop - 1]))
-    Leds.append(LedsInput)
-    GPIO.setup(Leds[LedsLoop - 1],GPIO.OUT)
+    Leds[LedsLoop] = LED(LedsInput)
 print(Leds)
 
 MenuList = ["\nLED ნათება\n","1080.მეტი\n1090.გამოსვლა\n\nშეიყვანე ციფრი:\t"]
@@ -143,95 +139,14 @@ while i == 1:
     elif reply == 9:
         TurnLedOffFunction(3)
 
-## მენიუ მეტი
-    elif reply == 1080:
-        meti = True
-        while meti == True:
-            metimenu = easygui.buttonbox("დააჭირეთ ღილაკს",choices = ["ნათურის სიკაშკაშე","შემთხვევითი ნათება","მასიური ციმციმი","გამოსვლა"])
-
-        ## ნათურის სიკაშკაშე
-            if metimenu == "ნათურის სიკაშკაშე":
-
-            ## ნათურის არჩევა სიკაშკაშე
-                ledbrightnessledchoiceloop = True
-                while ledbrightnessledchoiceloop == True:
-                    ledchoicebrightness = easygui.buttonbox("აირჩიეთ ნათურა",choices = ["First Led","მწვანე","თეთრი","გამოსვლა"])
-
-                    ## First Led ნათურის სიკაშკაშე
-                    if ledchoicebrightness == "First Led":
-                        redledbrightnessloop = True
-                        while redledbrightnessloop == True:
-                            ledbrightnesswelcome = easygui.indexbox("First Led ნათურის სიკაშკაშის კონტროლი\nგსურთ გაგრძელება?",choices = ["დიახ","არა"])
-                            if ledbrightnesswelcome == 0:
-                                redledbrightnessdutycycle = easygui.integerbox("Duty cycle",default = 50,lowerbound = 0,upperbound = 100) # change later
-                                redbrightness = GPIO.PWM(Leds[0], 200)
-                                redbrightness.start(redledbrightnessdutycycle)
-                            else:
-                                redbrightness.stop()
-                                ledbrightnessloop = False
-                                ledbrightnessledchoiceloop = False
-                    if ledchoicebrightness == "მწვანე":
-                        greenledbrightnessloop = True
-                        while greenledbrightnessloop == True:
-                            greenledbrightnesswelcome = easygui.indexbox("მწვანე ნათურის სიკაშკაშის კონტროლი\nგსურთ გაგრძელება?",choices = ["დიახ","არა"])
-                            if greenledbrightnesswelcome == 0:
-                                greenledbrightnessdutycycle = easygui.integerbox("აირჩიეთ სიკაშკაშის დონე\n0 - min // 100 - max",default = 50,lowerbound = 0,upperbound = 100) # change later
-                                greenbrightness = GPIO.PWM(greenledpin,200)
-                                greenbrightness.start(greenledbrightnessdutycycle)
-                            else:
-                                greenbrightness.stop()
-                                greenledbrightnessloop = False
-                                GPIO.cleanup()
-                    else:
-                        ledbrightnessledchoiceloop = False
-                        GPIO.cleanup()
-
-            ## შემთხვევითი ნათება
-            elif metimenu == "შემთხვევითი ნათება (მასიური)":
-                pass
-
-            ## მასიური ციმციმი
-            elif metimenu == "მასიური ციმციმი":
-                randomblinkloop = True
-                while randomblinkloop == True:
-                    welcomerandomblinkloop = easygui.buttonbox("გსურთ გაგრძელება?", choices =  ["კი","არა"])
-                    if welcomerandomblinkloop == "კი":
-                        numberofrandomblink = easygui.integerbox("რაოდენობა: ",default = 5,lowerbound = 0,upperbound = 50)
-                        speedofrandomblinkstring = easygui.enterbox("სიჩქარე")
-                        speedofrandomblinkfloat = float(speedofrandomblinkstring)
-                        for randomblinkforloop in range(numberofrandomblink):
-
-                            GPIO.output(Leds[0],GPIO.HIGH) #red
-                            sleep(speedofrandomblinkfloat)
-                            GPIO.output(Leds[0],GPIO.LOW)
-
-                            GPIO.output(whiteledpin,GPIO.HIGH) #white
-                            sleep(speedofrandomblinkfloat)
-                            GPIO.output(whiteledpin,GPIO.LOW)
-
-                            GPIO.output(greenledpin,GPIO.HIGH) #green
-                            sleep(speedofrandomblinkfloat)
-                            GPIO.output(greenledpin,GPIO.LOW)
-
-                            GPIO.output(blueledpin,GPIO.HIGH) #blueledpin
-                            sleep(speedofrandomblinkfloat)
-                            GPIO.output(blueledpin,GPIO.LOW)
-                    else:
-                        randomblinkloop == False
-
-        ## მენიუ მეტიდან გამოსვლა
-            else:
-                meti = False
-
     ## გამოსვლა
     elif reply == 1090:
-        exit = easygui.buttonbox("ნამდვიალად გსურთ გამოსვლა?",choices=["კი","არა"])
-        if exit == ("კი"):
+        exit = int(input(("ნამდვიალად გსურთ გამოსვლა?\n1.კი\n2.არა\nჩაწერეთ ციფრი:\t"))
+        if exit == 1:
             i=2
             GPIO.cleanup()
         else:
             print("-")
-            pass
 
 ## არაფერი
     else:
