@@ -99,7 +99,7 @@ MenuList = ''.join(MenuList)
 i = 1
 while i == 1:
 
-    reply = int(input(MenuList, "\n"))
+    reply = int(input(MenuList))
     print("\n")
 
 ## პირველი ნათურა
