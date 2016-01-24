@@ -44,10 +44,12 @@ def LedBlinkFunction(LedsNumberFunction):
 
         else:
             LedBlink = False
+    return;
 
 def TurnLedOffFunction (LedsNumberFunction):
     GPIO.output(Leds[0],GPIO.LOW)
     print("ნათურა გამოირთო!")
+    return;
 
 #####################
 
