@@ -1,4 +1,8 @@
 from gpiozero import LED
+from time import sleep
 
-led = LED(14)
-led.on()
+LedName = {}
+LedName[1] = LED(14)
+print(LedName[1])
+LedName[1].on()
+sleep(5)
