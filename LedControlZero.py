@@ -14,7 +14,7 @@ def LedBlinkFunction(LedsNumberFunction):
         if ReplyLedBlink == 1:
             BlinkNumberLed = int(input("რამდენჯერ უნდა დაიციმციმოს?\t"))
             BlinkPerSecondLed = float(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში\t"))
-            TimeSleepLed = 1 / BlinkPerSecondLed
+            TimeSleepLed = 1 / BlinkPerSecondLed / 2
             for x in range(BlinkNumberLed):
 
                 Leds[LedsNumberFunction].blink(TimeSleepLed,TimeSleepLed,BlinkNumberLed)
