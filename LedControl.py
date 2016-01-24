@@ -82,6 +82,11 @@ i = 1
 while i == 1:
     for MenuLoop in range(1, HowManyLed + 1):
 
+        strMenuListLedNumber = str(MenuListLedNumber)
+        strMenuListNumberOne = str(MenuListNumberOne)
+        strMenuListNumberTwo = str(MenuListNumberTwo)
+        strMenuListNumberThree = str(MenuListNumberThree)
+        
         MenuListString = strMenuListNumberOne + ". " + strMenuListLedNumber + " ნათურა - ჩართვა\n" + strMenuListNumberTwo + ". " + strMenuListLedNumber + " ნათურა - ციმციმი\n" + strMenuListNumberThree + ". " + strMenuListLedNumber + " ნათურა - გამორთვა\n"
         MenuList.insert(MenuListIndex, MenuListString)
 
@@ -90,11 +95,6 @@ while i == 1:
         MenuListNumberOne += 3
         MenuListNumberTwo += 3
         MenuListNumberThree += 3
-
-        strMenuListLedNumber = str(MenuListLedNumber)
-        strMenuListNumberOne = str(MenuListNumberOne)
-        strMenuListNumberTwo = str(MenuListNumberTwo)
-        strMenuListNumberThree = str(MenuListNumberThree)
 
     MenuList = ''.join(MenuList)
     reply = int(input(MenuList))
