@@ -17,7 +17,7 @@ def LedBlinkFunction(LedsNumberFunction):
             TimeSleepLed = 1 / BlinkPerSecondLed / 2
             for x in range(BlinkNumberLed):
 
-                Leds[LedsNumberFunction].blink(TimeSleepLed,TimeSleepLed,BlinkNumberLed,False)
+                Leds[LedsNumberFunction].blink(TimeSleepLed,TimeSleepLed,BlinkNumberLed)
 
         elif ReplyLedBlink  == 2:
             LedFadeLoop = True
