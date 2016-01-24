@@ -71,7 +71,7 @@ for LedsLoop in range(1, HowManyLed + 1):
     GPIO.setup(Leds[LedsLoop - 1],GPIO.OUT)
 print(Leds)
 
-MenuList = ["LED ნათება\n","1080.მეტი\n1090.გამოსვლა\nშეიყვანე ციფრი:\t"]
+MenuList = ["\nLED ნათება\n","1080.მეტი\n1090.გამოსვლა\n\nშეიყვანე ციფრი:\t"]
 MenuListIndex = 1
 MenuListLedNumber = 1
 MenuListNumberOne = 1
@@ -80,14 +80,14 @@ MenuListNumberThree = 3
 
 i = 1
 while i == 1:
-    for MenuLoop in range(1, HowManyLed + 1):
+    for MenuLoop in range(HowManyLed):
 
         strMenuListLedNumber = str(MenuListLedNumber)
         strMenuListNumberOne = str(MenuListNumberOne)
         strMenuListNumberTwo = str(MenuListNumberTwo)
         strMenuListNumberThree = str(MenuListNumberThree)
-        
-        MenuListString = strMenuListNumberOne + ". " + strMenuListLedNumber + " ნათურა - ჩართვა\n" + strMenuListNumberTwo + ". " + strMenuListLedNumber + " ნათურა - ციმციმი\n" + strMenuListNumberThree + ". " + strMenuListLedNumber + " ნათურა - გამორთვა\n"
+
+        MenuListString = strMenuListNumberOne + ". " + strMenuListLedNumber + " ნათურა - ჩართვა\n" + strMenuListNumberTwo + ". " + strMenuListLedNumber + " ნათურა - ციმციმი\n" + strMenuListNumberThree + ". " + strMenuListLedNumber + " ნათურა - გამორთვა\n\n"
         MenuList.insert(MenuListIndex, MenuListString)
 
         MenuListLedNumber += 1
