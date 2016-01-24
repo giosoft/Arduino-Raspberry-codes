@@ -71,7 +71,7 @@ print(Leds)
 
 i = 1
 while i == 1:
-    for MenuLoop in range(HowManyLed):
+    for MenuLoop in range(1, HowManyLed + 1): 
         MenuList = ["LED ნათება\n","1080.მეტი\n1090.გამოსვლა\nშეიყვანე ციფრი:\t"]
         MenuListIndex = 1
         MenuListLedNumber = 1
