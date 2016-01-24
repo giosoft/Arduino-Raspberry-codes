@@ -88,7 +88,7 @@ while i == 1:
         strMenuListNumberThree = str(MenuListNumberThree)
 
         MenuListString = strMenuListNumberOne + ". " + strMenuListLedNumber + " ნათურა - ჩართვა\n" + strMenuListNumberTwo + ". " + strMenuListLedNumber + " ნათურა - ციმციმი\n" + strMenuListNumberThree + ". " + strMenuListLedNumber + " ნათურა - გამორთვა\n\n"
-        MenuList.insert(MenuListIndex, MenuListString)
+        MenuList.insert(MenuListIndex, 123)
 
         MenuListLedNumber += 1
         MenuListIndex += 1
