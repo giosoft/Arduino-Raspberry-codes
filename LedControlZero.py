@@ -19,24 +19,17 @@ def LedBlinkFunction(LedsNumberFunction):
             Leds[LedsNumberFunction].blink(TimeSleepLed,TimeSleepLed,BlinkNumberLed)
 
         elif ReplyLedBlink  == 2:
-            LedFadeLoop = True
-            while LedFadeLoop == True:
-                LedFadeInput = int(input("\nგსურთ გაგრძელება?\n1.დიახ\n2.არა"))
-                if LedFadeInput == 1:
-                    for FadeDown in range(100):
-                        LedFadeDutyCycle = 100
-                        LedFade = GPIO.PWM(Leds[0], 200)
-                        LedFade.start(LedFadeDutyCycle)
-                        LedFadeDutyCycle -= 1
-
-                    for FadeDown in range(100):
-                        LedFade = GPIO.PWM(Leds[0], 200)
-                        LedFade.start(LedFadeDutyCycle)
-                        LedFadeDutyCycle += 1
-                else:
-                    LedFade.stop()
-                    LedFadeLoop = False
-
+            LedFadeNumber = int(input("რამდენჯერ გსურთ?\t"))
+            LedFadePause = int(input("სიჩქარე\t"))
+            for LedFadeLoop in (LedFadeNumber):
+                Leds[LedsNumberFunction].on()
+                for i in range(0,101):      # 101 because it stops when it finishes 100
+                    Leds[LedsNumberFunction].value = i
+                    sleep(LedFadePause)
+                for i in range(100,-1,-1):      # from 100 to zero in steps of -1
+                    Leds[LedsNumberFunction].value = i
+                    sleep(LedFadePause)
+                Leds[LedsNumberFunction].off()
         else:
             LedBlink = False
     return;
@@ -48,7 +41,7 @@ def TurnLedOffFunction (LedsNumberFunction):
 
 #####################
 
-from gpiozero import LED
+from gpiozero import PWMLED
 import RPi.GPIO as GPIO
 from time import sleep
 import easygui
@@ -65,7 +58,7 @@ print(LedsNumber)
 Leds = {}
 for LedsLoop in range(1, HowManyLed + 1):
     LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი:\t" % LedsNumber[LedsLoop - 1]))
-    Leds[LedsLoop] = LED(LedsInput)
+    Leds[LedsLoop] = PWMLED(LedsInput)
 print(Leds)
 
 MenuList = ["\nLED ნათება\n","1080.მეტი\n1090.გამოსვლა\n\nშეიყვანე ციფრი:\t"]
