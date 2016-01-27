@@ -21,7 +21,7 @@ def LedBlinkFunction(LedsNumberFunction):
         elif ReplyLedBlink  == 2:
             LedFadeNumber = int(input("რამდენჯერ გსურთ?\t"))
             LedFadePause = float(input("სიჩქარე\t"))
-            for LedFadeLoop in (LedFadeNumber):
+            for LedFadeLoop in range(LedFadeNumber):
                 Leds[LedsNumberFunction].on()
                 for i in range(0,101):      # 101 because it stops when it finishes 100
                     Leds[LedsNumberFunction].value = i
