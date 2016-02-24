@@ -58,11 +58,20 @@ for LedsNumberLoop in range (HowManyLed):
     LedsNumber.append(LedsNumberLoop + 1)
 print(LedsNumber)
 
+LedsInputList = []
 Leds = {}
 for LedsLoop in range(HowManyLed):
     LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი:\t" % LedsNumber[LedsLoop]))
+    LedsInputList.append(LedsInput)
     Leds[LedsLoop + 1] = PWMLED(LedsInput)
 print(Leds)
+
+LedsAndFriends = []
+for LedsAndFriendsLoop in range (HowManyLed):
+    LedsAndFriends.append(LedsNumber[LedsAndFriendsLoop])
+    LedsAndFriends.append(" - ")
+    LedsAndFriends.append(LedsInputList[LedsAndFriendsLoop])
+print(LedsAndFriends)
 
 Menu = "\nLED ნათურის კონტროლი\n\n1.ანთება\n2.ციმციმი\n3.ჩაქრობა\n0.გამოსვლა\n\nშეიყვანე ციფრი:\t"
 
@@ -77,20 +86,21 @@ while i == 1:
     if reply == 1:
         LedOnLoop = True
             while LedOnLoop == True:
-
+                int(input())
 
 #### პირველი ნათურა ციმციმი
     elif reply == 2:
+        pass
 
 #### პირველი ნათურა გამორთვა
     elif reply == 3:
-
+        pass
 
 ## გამოსვლა
     elif reply == 1090:
         exit = int(input("ნამდვიალად გსურთ გამოსვლა?\n1.კი\n2.არა\nჩაწერეთ ციფრი:\t"))
         if exit == 1:
-            i=2
+            i = 2
             GPIO.cleanup()
         else:
             pass
