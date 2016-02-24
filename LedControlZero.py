@@ -52,96 +52,49 @@ GPIO.setwarnings(False)
 GPIO.cleanup()
 
 HowManyLed = int(input("რამდენი ნათურა გაქვთ?\t"))
+
 LedsNumber = []
 for LedsNumberLoop in range (HowManyLed):
     LedsNumber.append(LedsNumberLoop + 1)
 print(LedsNumber)
 
 Leds = {}
-for LedsLoop in range(1, HowManyLed + 1):
-    LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი:\t" % LedsNumber[LedsLoop - 1]))
-    Leds[LedsLoop] = PWMLED(LedsInput)
+for LedsLoop in range(HowManyLed):
+    LedsInput = int(input("ჩაწერეთ %s ნათურის პინის ნომერი:\t" % LedsNumber[LedsLoop]))
+    Leds[LedsLoop + 1] = PWMLED(LedsInput)
 print(Leds)
 
-MenuList = ["\nLED ნათება\n","1080.მეტი\n1090.გამოსვლა\n\nშეიყვანე ციფრი:\t"]
-MenuListIndex = 1
-MenuListLedNumber = 1
-MenuListNumberOne = 1
-MenuListNumberTwo = 2
-MenuListNumberThree = 3
-
-for MenuLoop in range(HowManyLed):
-
-    strMenuListLedNumber = str(MenuListLedNumber)
-    strMenuListNumberOne = str(MenuListNumberOne)
-    strMenuListNumberTwo = str(MenuListNumberTwo)
-    strMenuListNumberThree = str(MenuListNumberThree)
-
-    MenuListString = strMenuListNumberOne + ". " + strMenuListLedNumber + " ნათურა - ჩართვა\n" + strMenuListNumberTwo + ". " + strMenuListLedNumber + " ნათურა - ციმციმი\n" + strMenuListNumberThree + ". " + strMenuListLedNumber + " ნათურა - გამორთვა\n\n"
-    MenuList.insert(MenuListIndex, MenuListString)
-
-    MenuListLedNumber += 1
-    MenuListIndex += 1
-    MenuListNumberOne += 3
-    MenuListNumberTwo += 3
-    MenuListNumberThree += 3
-
-MenuList = ''.join(MenuList)
+Menu = "\nLED ნათურის კონტროლი\n\n1.ანთება\n2.ციმციმი\n3.ჩაქრობა\n0.გამოსვლა\n\nშეიყვანე ციფრი:\t"
 
 i = 1
 while i == 1:
 
-    reply = int(input(MenuList))
+    reply = int(input(Menu))
     print("\n")
 
 ## პირველი ნათურა
 #### პირველი ნათურა ჩართვა
     if reply == 1:
-        TurnLedOnFunction(1)
+        LedOnLoop = True
+            while LedOnLoop == True:
+
 
 #### პირველი ნათურა ციმციმი
     elif reply == 2:
-        LedBlinkFunction(1)
 
 #### პირველი ნათურა გამორთვა
     elif reply == 3:
-        TurnLedOffFunction(1)
-## მეორე ნათურა
 
-#### მეორე ნათურის ჩართვა
-    if reply == 4:
-        TurnLedOnFunction(2)
 
-#### მეორე ნათურის ციმციმი
-    elif reply == 5:
-        LedBlinkFunction(2)
-
-#### მეორე ნათურის გამორთვა
-    elif reply == 6:
-        TurnLedOffFunction(2)
-
-## მესამე ნათურა
-#### მესამე ნათურის ჩართვა
-    if reply == 7:
-        TurnLedOnFunction(3)
-
-#### მესამე ნათურის ციმციმი
-    elif reply == 8:
-        LedBlinkFunction(3)
-
-#### მესამე ნათურის გამორთვა
-    elif reply == 9:
-        TurnLedOffFunction(3)
-
-    ## გამოსვლა
+## გამოსვლა
     elif reply == 1090:
         exit = int(input("ნამდვიალად გსურთ გამოსვლა?\n1.კი\n2.არა\nჩაწერეთ ციფრი:\t"))
         if exit == 1:
             i=2
             GPIO.cleanup()
         else:
-            print("-")
+            pass
 
 ## არაფერი
     else:
-        pass
+        print("თქვენი შეყვანილი ციფრი არასწორია.\nგთხოვთ სცადოთ თავიდან!\n")
