@@ -16,7 +16,7 @@ def LedBlinkFunction(LedsNumberFunction):
             BlinkPerSecondLed = float(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში\t"))
             TimeSleepLed = 1 / BlinkPerSecondLed / 2
 
-            Leds[LedsNumberFunction].blink(TimeSleepLed,TimeSleepLed,BlinkNumberLed)
+            Leds[LedsNumberFunction].blink(TimeSleepLed, TimeSleepLed, BlinkNumberLed)
 
         elif ReplyLedBlink  == 2:
             LedFadeNumber = int(input("რამდენჯერ გსურთ?\t"))
@@ -89,16 +89,25 @@ while i == 1:
             LedOnInput = int(input(LedsAndFriends))
             if LedOnInput == 0:
                 LedOnLoop = False
+
             else:
                 TurnLedOnFunction(LedOnInput)
 
 #### ციმციმი
     elif reply == 2:
         LedBlinkLoop = True
+        LedsAndFriendsBlinkEdition = LedsAndFriends
+        LedsAndFriendsBlinkEdition.append("100-რამოდენიმეს ერთად არჩევა")
         while LedBlinkLoop == True:
-            LedBlinkInput = int(input(LedsAndFriends))
-            if LedBlinkInput == 0:
+            LedBlinkInput = int(input(LedsAndFriendsBlinkEdition))
+            if LedBlinkInput = 100:
+                print("\nრამოდენიმეს ერთად არჩევა\n")
+                LedBlinkMultiInput = int(input(LedsAndFriends))
+
+
+            elif LedBlinkInput == 0:
                 LedBlinkLoop = False
+
             else:
                 LedBlinkFunction(LedBlinkInput)
 
@@ -109,6 +118,7 @@ while i == 1:
             LedOffInput = int(input(LedsAndFriends))
             if LedOffInput == 0:
                 LedOffLoop = False
+
             else:
                 TurnLedOffFunction(LedOffInput)
 
@@ -117,7 +127,6 @@ while i == 1:
         exit = int(input("ნამდვიალად გსურთ გამოსვლა?\n1.კი\n2.არა\nჩაწერეთ ციფრი:\t"))
         if exit == 1:
             i = 2
-            GPIO.cleanup()
         else:
             pass
 
