@@ -69,8 +69,9 @@ print(Leds)
 LedsAndFriends = []
 for LedsAndFriendsLoop in range (HowManyLed):
     LedsAndFriends.append(LedsNumber[LedsAndFriendsLoop])
-    LedsAndFriends.append(" - ")
+    LedsAndFriends.append("-")
     LedsAndFriends.append(LedsInputList[LedsAndFriendsLoop])
+LedsAndFriends.append("0-გამოსვლა")
 print(LedsAndFriends)
 
 Menu = "\nLED ნათურის კონტროლი\n\n1.ანთება\n2.ციმციმი\n3.ჩაქრობა\n0.გამოსვლა\n\nშეიყვანე ციფრი:\t"
@@ -81,20 +82,35 @@ while i == 1:
     reply = int(input(Menu))
     print("\n")
 
-## პირველი ნათურა
-#### პირველი ნათურა ჩართვა
+#### ანთება
     if reply == 1:
         LedOnLoop = True
-            while LedOnLoop == True:
-                int(input())
+        while LedOnLoop == True:
+            LedOnInput = int(input(LedsAndFriends))
+            if LedOnInput == 0:
+                LedOnLoop = False
+            else:
+                TurnLedOnFunction(LedOnInput)
 
-#### პირველი ნათურა ციმციმი
+#### ციმციმი
     elif reply == 2:
-        pass
+        LedBlinkLoop = True
+        while LedBlinkLoop == True:
+            LedBlinkInput = int(input(LedsAndFriends))
+            if LedBlinkInput == 0:
+                LedBlinkLoop = False
+            else:
+                LedBlinkFunction(LedBlinkInput)
 
-#### პირველი ნათურა გამორთვა
+#### ჩაქრობა
     elif reply == 3:
-        pass
+        LedOffLoop = True
+        while LedOffLoop == True:
+            LedOffInput = int(input(LedsAndFriends))
+            if LedOffInput == 0:
+                LedOffLoop = False
+            else:
+                TurnLedOffFunction(LedOffInput)
 
 ## გამოსვლა
     elif reply == 1090:
