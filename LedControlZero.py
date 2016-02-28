@@ -100,7 +100,7 @@ while i == 1:
         LedsAndFriendsBlinkEdition.append("100-რამოდენიმეს ერთად არჩევა")
         while LedBlinkLoop == True:
             LedBlinkInput = int(input(LedsAndFriendsBlinkEdition))
-            if LedBlinkInput = 100:
+            if LedBlinkInput == 100:
                 print("\nრამოდენიმეს ერთად არჩევა\n")
                 LedBlinkMultiInput = int(input(LedsAndFriends))
 
