@@ -3,7 +3,6 @@
 def TurnLedOnFunction(LedsNumberFunction):
     Leds[LedsNumberFunction].on()
     print("ნათურა აინთო!")
-    return;
 
 def LedBlinkFunction(LedsNumberFunction):
     LedBlink = True
@@ -32,12 +31,10 @@ def LedBlinkFunction(LedsNumberFunction):
 
         else:
             LedBlink = False
-    return;
 
 def TurnLedOffFunction (LedsNumberFunction):
     Leds[LedsNumberFunction].off()
     print("ნათურა გამოირთო!")
-    return;
 
 #####################
 
