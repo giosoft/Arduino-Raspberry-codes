@@ -44,7 +44,7 @@ def TurnLedOffFunction (LedsNumberFunction):
 from gpiozero import PWMLED
 from time import sleep
 
-## setup
+########## setup ########################################################
 
 HowManyLed = int(input("რამდენი ნათურა გაქვთ?\t"))
 
@@ -77,7 +77,7 @@ print(RawLedsAndFriendsBlinkEdition)
 LedsAndFriendsBlinkEdition = ''.join(RawLedsAndFriendsBlinkEdition)
 print(LedsAndFriendsBlinkEdition)
 
-## setup
+########## setup ########################################################
 
 Menu = "\nLED ნათურის კონტროლი\n\n1.ანთება\n2.ციმციმი\n3.ჩაქრობა\n0.გამოსვლა\n\nშეიყვანე ციფრი:\t"
 
