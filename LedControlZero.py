@@ -15,7 +15,6 @@ def LedBlinkFunction(LedsNumberFunction):
             BlinkNumberLed = int(input("რამდენჯერ უნდა დაიციმციმოს?\t"))
             BlinkPerSecondLed = float(input("რა სიჩქარით იციმციმოს? x დაციმციმება 1 წამში\t"))
             TimeSleepLed = 1 / BlinkPerSecondLed / 2
-
             Leds[LedsNumberFunction].blink(TimeSleepLed, TimeSleepLed, BlinkNumberLed)
 
         elif ReplyLedBlink  == 2:
@@ -43,13 +42,9 @@ def TurnLedOffFunction (LedsNumberFunction):
 #####################
 
 from gpiozero import PWMLED
-import RPi.GPIO as GPIO
 from time import sleep
-import easygui
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.cleanup()
+## setup
 
 HowManyLed = int(input("რამდენი ნათურა გაქვთ?\t"))
 
@@ -66,13 +61,23 @@ for LedsLoop in range(HowManyLed):
     Leds[LedsLoop + 1] = PWMLED(LedsInput)
 print(Leds)
 
-LedsAndFriends = []
+RawLedsAndFriends = []
 for LedsAndFriendsLoop in range (HowManyLed):
-    LedsAndFriends.append(LedsNumber[LedsAndFriendsLoop])
-    LedsAndFriends.append("-")
-    LedsAndFriends.append(LedsInputList[LedsAndFriendsLoop])
-LedsAndFriends.append("0-გამოსვლა")
+    RawLedsAndFriends.append(LedsNumber[LedsAndFriendsLoop])
+    RawLedsAndFriends.append("-")
+    RawLedsAndFriends.append(LedsInputList[LedsAndFriendsLoop])
+RawLedsAndFriends.append("0-გამოსვლა")
+print(RawLedsAndFriends)
+LedsAndFriends = ''.join(RawLedsAndFriends)
 print(LedsAndFriends)
+
+RawLedsAndFriendsBlinkEdition = RawLedsAndFriends
+RawLedsAndFriendsBlinkEdition.append("100-რამოდენიმეს ერთად არჩევა")
+print(RawLedsAndFriendsBlinkEdition)
+LedsAndFriendsBlinkEdition = ''.join(RawLedsAndFriendsBlinkEdition)
+print(LedsAndFriendsBlinkEdition)
+
+## setup
 
 Menu = "\nLED ნათურის კონტროლი\n\n1.ანთება\n2.ციმციმი\n3.ჩაქრობა\n0.გამოსვლა\n\nშეიყვანე ციფრი:\t"
 
@@ -96,8 +101,6 @@ while i == 1:
 #### ციმციმი
     elif reply == 2:
         LedBlinkLoop = True
-        LedsAndFriendsBlinkEdition = LedsAndFriends
-        LedsAndFriendsBlinkEdition.append("100-რამოდენიმეს ერთად არჩევა")
         while LedBlinkLoop == True:
             LedBlinkInput = int(input(LedsAndFriendsBlinkEdition))
             if LedBlinkInput == 100:
@@ -123,13 +126,13 @@ while i == 1:
                 TurnLedOffFunction(LedOffInput)
 
 ## გამოსვლა
-    elif reply == 1090:
+    elif reply == 0:
         exit = int(input("ნამდვიალად გსურთ გამოსვლა?\n1.კი\n2.არა\nჩაწერეთ ციფრი:\t"))
         if exit == 1:
             i = 2
         else:
             pass
 
-## არაფერი
+## შეცდომა
     else:
         print("თქვენი შეყვანილი ციფრი არასწორია.\nგთხოვთ სცადოთ თავიდან!\n")
