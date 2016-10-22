@@ -1,1 +1,1 @@
-# python code for Raspberry Pi
+# Codes for Arduino and Raspberry Pi
